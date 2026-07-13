@@ -1,0 +1,82 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ms-blue: #0078d4;
+  --color-ms-blue-hover: #106ebe;
+  --color-ms-green: #107c41;
+  --color-ms-green-hover: #0b5930;
+  --color-ms-gray-10: #faf9f8;
+  --color-ms-gray-20: #f3f2f1;
+  --color-ms-gray-30: #edebe9;
+  --color-ms-gray-40: #e1dfdd;
+  --color-ms-gray-100: #605e5c;
+  --color-ms-gray-160: #323130;
+  
+  --font-fluent: "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
+}
+
+@layer base {
+  body {
+    font-family: var(--font-fluent);
+    @apply bg-slate-50 text-slate-800 transition-colors duration-200;
+  }
+
+  body.dark {
+    @apply bg-slate-950 text-slate-100;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-300 rounded-full hover:bg-slate-400;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  @apply bg-slate-800 rounded-full hover:bg-slate-700;
+}
+
+/* Glassmorphism Classes */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.dark .glass-panel {
+  background: rgba(15, 23, 42, 0.65);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
+}
+
+.dark .glass-card {
+  background: rgba(30, 41, 59, 0.45);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Pulse recording dot */
+@keyframes record-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.9); }
+}
+
+.animate-record {
+  animation: record-pulse 1.8s infinite ease-in-out;
+}

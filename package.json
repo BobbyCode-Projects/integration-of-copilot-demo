@@ -1,0 +1,16 @@
+{
+  "name": "ai-meeting-automation-hub",
+  "version": "1.0.0",
+  "description": "Microsoft Copilot Meeting Automation Hub Demo",
+  "private": true,
+  "scripts": {
+    "setup": "PATH=\"/Users/bhargav/integration of copilot/.node/bin:$PATH\" npm install && cd server && PATH=\"/Users/bhargav/integration of copilot/.node/bin:$PATH\" npm install && cd ../client && PATH=\"/Users/bhargav/integration of copilot/.node/bin:$PATH\" npm install",
+    "dev": "PATH=\"/Users/bhargav/integration of copilot/.node/bin:$PATH\" concurrently -n \"server,client\" -c \"yellow,blue\" \"npm run dev:server\" \"npm run dev:client\"",
+    "dev:server": "cd server && PATH=\"/Users/bhargav/integration of copilot/.node/bin:$PATH\" npm run dev",
+    "dev:client": "cd client && PATH=\"/Users/bhargav/integration of copilot/.node/bin:$PATH\" npm run dev",
+    "build": "cd server && PATH=\"/Users/bhargav/integration of copilot/.node/bin:$PATH\" npm run build && cd ../client && PATH=\"/Users/bhargav/integration of copilot/.node/bin:$PATH\" npm run build"
+  },
+  "dependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
